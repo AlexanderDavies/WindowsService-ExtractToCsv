@@ -23,17 +23,11 @@ namespace WindowsService_ExtractFromDatabaseIntoCsv
 
         public CsvExtractor()
         {
-            //unencrypt the config file so that variables can be instantiated.
-            EncryptConfigurationFile.UnencryptConfigFile();
-
             this.errorLogger = new ErrorLogger();
             this.databases = new List<Database>();
             this.csvFilePath = AppDomain.CurrentDomain.BaseDirectory + DateTime.Now.ToString("yyyyMMdd") + "_Output.csv";
             this.sw = new StreamWriter(this.csvFilePath);
             this.sb = new StringBuilder();
-
-            //reencrypt the file.
-            EncryptConfigurationFile.EncryptConfigFile();
         }
 
         //extract the data from the database into a string builder in CSV format;
@@ -81,9 +75,7 @@ namespace WindowsService_ExtractFromDatabaseIntoCsv
         
         public void ExtractDataToCsv()
         {
-            //unencrypt the config file to enable access to the connection strings
-            EncryptConfigurationFile.UnencryptConfigFile();
-
+         
             //get database config data
             NameValueCollection sqlSection = (NameValueCollection)ConfigurationManager.GetSection("sql");
             ConnectionStringSettingsCollection connectionStrings = ConfigurationManager.ConnectionStrings;
@@ -129,9 +121,6 @@ namespace WindowsService_ExtractFromDatabaseIntoCsv
                 // Delete the file if errors in any of the source systems
                 File.Delete(csvFilePath);
             }
-
-            // Re-encrypt the config file connection strings
-            EncryptConfigurationFile.EncryptConfigFile();
         }   
     }
 }

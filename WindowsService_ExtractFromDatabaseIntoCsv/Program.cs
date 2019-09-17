@@ -53,7 +53,7 @@ namespace WindowsService_ExtractFromDatabaseIntoCsv
 
         public Program()
         {
-            scheduleTime = DateTime.Today.AddDays(0).AddHours(15).AddMinutes(3); // Schedule to run once a day at 1.00 am in PROD
+            scheduleTime = DateTime.Today.AddDays(0).AddHours(10).AddMinutes(55); // Schedule to run once a day at 1.00 am in PROD
 
             //on deployment if the set time is earlier then the current time then add 24 hours from schedule time
             if (DateTime.Now > scheduleTime)

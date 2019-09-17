@@ -32,7 +32,9 @@ namespace WindowsService_ExtractFromDatabaseIntoCsv
             mm.To.Add(new MailAddress(toAddress));
             mm.BodyEncoding = UTF8Encoding.UTF8;
             mm.Subject = subject;
-            mm.Body = body;          
+            mm.Body = body;
+
+            this.emailClient.Send(mm);
         }
     }
 }
