@@ -1,4 +1,4 @@
-# WindowsService_ExtractFromDatabaseIntoCsv
+# WindowsService-ExtractToCsv
 
 On a recent project I was tasked with building a batch integration component to extract data from multiple databases into a single CSV for daily ingestion by a third party application. This seemingly simple task became the victim of common Enterprise practice - the perfect storm of changing requirements, restrictive costs and restrictive IT policies all came into play. 
 
